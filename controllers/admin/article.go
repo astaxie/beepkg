@@ -15,8 +15,8 @@ func (this *ArticleController) Prepare() {
 }
 
 func (this *ArticleController) Get() {
-	this.Ct.Request.ParseForm()
-	page, _ := strconv.Atoi(this.Ct.Request.Form.Get("page"))
+	this.Ctx.Request.ParseForm()
+	page, _ := strconv.Atoi(this.Ctx.Request.Form.Get("page"))
 	offest := 400
 	if page == 0 {
 		page = 1

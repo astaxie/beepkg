@@ -15,14 +15,14 @@ var welcome = `
 `
 
 func (this *MainController) Get() {
-	crupkg := models.GetCruPkg(this.Ct.Params[":pkg"])
+	crupkg := models.GetCruPkg(this.Ctx.Params[":pkg"])
 	this.Data["CruPkg"] = crupkg
 	pkglist := models.GetAllPkg()
 	pm := make([]map[string]interface{}, len(pkglist))
 	for _, pk := range pkglist {
 		m := make(map[string]interface{}, 2)
 		m["PKG"] = pk
-		if this.Ct.Params[":pkg"] == pk.Pathname {
+		if this.Ctx.Params[":pkg"] == pk.Pathname {
 			m["Cru"] = true
 		} else {
 			m["Cru"] = false

@@ -20,10 +20,10 @@ func (this *AddController) Get() {
 
 func (this *AddController) Post() {
 	//数据处理
-	this.Ct.Request.ParseForm()
-	pkgname := this.Ct.Request.Form.Get("pkgname")
-	content := this.Ct.Request.Form.Get("content")
-	beego.Info(this.Ct.Request.Form)
+	this.Ctx.Request.ParseForm()
+	pkgname := this.Ctx.Request.Form.Get("pkgname")
+	content := this.Ctx.Request.Form.Get("content")
+	beego.Info(this.Ctx.Request.Form)
 	pk := models.GetCruPkg(pkgname)
 	if pk.Id == 0 {
 		var pp models.PkgEntity
@@ -37,5 +37,5 @@ func (this *AddController) Post() {
 	at.Pkgid = pk.Id
 	at.Content = content
 	models.InsertArticle(at)
-	this.Ct.Redirect(302, "/admin/index")
+	this.Ctx.Redirect(302, "/admin/index")
 }
