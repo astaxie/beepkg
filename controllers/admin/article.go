@@ -1,8 +1,8 @@
 package admin
 
 import (
-	"beepkg/models"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beepkg/models"
 	"strconv"
 )
 

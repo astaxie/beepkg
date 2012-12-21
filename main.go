@@ -1,9 +1,9 @@
 package main
 
 import (
-	"beepkg/controllers"
-	"beepkg/controllers/admin"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beepkg/controllers"
+	"github.com/astaxie/beepkg/controllers/admin"
 )
 
 func main() {
